@@ -15,6 +15,10 @@ const { callOllama } = require("./lib/ollama");
 const { postDraftToHatena } = require("./lib/hatena");
 const { searchSearXNG } = require("./lib/search");
 
+/**
+ * アプリケーションのメインエントリーポイントです。
+ * コマンドライン引数を解析し、コンテンツを取得し、ブログ記事を生成し、オプションでHatenaに投稿します。
+ */
 async function main() {
   const argv = yargs(hideBin(process.argv))
     .option("url", {
