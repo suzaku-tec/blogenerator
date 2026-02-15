@@ -96,13 +96,8 @@ async function main() {
           if (!res.url) continue;
           try {
             console.log(`Fetching: ${res.url}`);
-            const pageRes = await axios.get(res.url, {
-              responseType: "text",
-              timeout: 5000,
-            });
-            const text = await extractTextFromHtml(pageRes.data, 1000);
             contents.push(
-              `Title: ${res.title}\nURL: ${res.url}\nContent: ${text}`,
+              `Title: ${res.title}\nURL: ${res.url}\nContent: ${res.content || ""}`,
             );
           } catch (e) {
             console.warn(`Failed to fetch ${res.url}: ${e.message}`);
